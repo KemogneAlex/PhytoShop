@@ -100,3 +100,4 @@ phytopro-shop-source.zip
 # Environment files
 *.env
 *.env.*
+.env
