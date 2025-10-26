@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import axios from 'axios';
 import { Toaster } from '@/components/ui/sonner';
 import useTarteaucitron from '@/hooks/useTarteaucitron';
+import { AuthContext } from '@/contexts/AuthContext';
 
 // Pages
 import HomePage from '@/pages/HomePage';
@@ -26,17 +27,6 @@ import AdminProductsPage from '@/pages/AdminProductsPage';
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
-
-// Auth Context
-export const AuthContext = React.createContext(null);
-
-export const useAuth = () => {
-  const context = React.useContext(AuthContext);
-  if (!context) {
-    throw new Error('useAuth must be used within AuthProvider');
-  }
-  return context;
-};
 
 function App() {
   const [user, setUser] = useState(null);
